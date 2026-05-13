@@ -47,4 +47,16 @@ console.log(Object.values(tinderUser));// to get all values
 console.log(Object.entries(tinderUser));// to get all keys and values in array form: [ [ 'id', '123abc' ], [ 'name', 'Sam' ], [ 'isLoggedIn', false ] ]
 console.log(tinderUser.hasOwnProperty("isLoggedIn"));// give true or false
 
+//**Destructuring of Objects */
+const course={
+    coursename:"js in hindi",
+    price:"999",
 
+}
+//Instead of calling elements in object one by one like this : course.username or course.age then to avoid this we do destructuring:
+const {coursename:cn,price}=course;//(:cn)its nothing but we can give short name to our element
+console.log(price);
+console.log(cn);
+
+//Data from APi can be in JSONform of object or array also
+ 

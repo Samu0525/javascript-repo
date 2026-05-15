@@ -1,0 +1,162 @@
+Interview Asked Questions
+
+
+Java Script Execution
+1) Global Execution context
+2) Functional Execution context
+
+phases of code creation:
+1) Memory Creation phases: i) Global Execution here
+:i) here first all variables are ataken and undefined in kept in all: val1-> undefined val2->undefined val3-> definition of function . result1-> undefined result2-> undefined} this all is  called first cycle.
+
+2)Execution phase: val1->10 val2->5 addnum-> makes it own diff execution context(gets deleeted after its work is done). here new variable env and execution thred is made.Hence memory creation and execution phase is repeded for that addNum fun.->i)Memory phase: val1->undefined val2->undefined total-> undefined . ii) Execution phase : num1->10 num2->5 total->15 total is returnrd in Global executioon contest.
+
+callstack:
+lifo concept work here.
+
+---------------------------------------------------------
+JavaScript Execution:
+
+1. Global Execution Context created
+
+2. Memory Phase:
+   Variables -> undefined
+   Functions -> definition
+
+3. Execution Phase:
+   Values assigned
+   Functions executed
+
+4. Function calls create new execution contexts
+
+5. Call Stack manages execution using LIFO
+---------------------------------------------------------
+# JavaScript Execution Context (Short & Simple)
+
+When JavaScript runs code, it creates an **Execution Context**.
+
+It is of 2 types:
+
+1. **Global Execution Context (GEC)**
+
+   * Created first
+   * Runs whole program
+
+2. **Function Execution Context (FEC)**
+
+   * Created whenever a function is called
+   * Deleted after function work is finished
+
+---
+
+# JavaScript Runs in 2 Phases
+
+## 1) Memory Creation Phase
+
+JavaScript stores memory first.
+
+* Variables → `undefined`
+* Functions → full definition
+
+Example:
+
+```javascript id="fqu5uo"
+let a = 10;
+
+function add(x, y){
+   return x + y;
+}
+```
+
+Memory phase:
+
+```text id="04v93m"
+a -> undefined
+add -> function definition
+```
+
+---
+
+## 2) Execution Phase
+
+Now actual values are assigned and code runs.
+
+```text id="v6tbwa"
+a -> 10
+```
+
+When function is called:
+
+```javascript id="67t9fc"
+add(2,3)
+```
+
+A new **Function Execution Context** is created.
+
+Inside it again:
+
+* Memory phase happens
+* Execution phase happens
+
+Then function returns result and gets deleted.
+
+---
+
+# Call Stack
+
+JavaScript uses a **Call Stack** to track function calls.
+
+It follows:
+
+> **LIFO = Last In First Out**
+
+The last function added is removed first.
+
+---
+
+# Example
+
+```javascript id="e6d6wj"
+function one(){
+   two();
+}
+
+function two(){
+   console.log("Hello");
+}
+
+one();
+```
+
+Stack flow:
+
+```text id="c0ttln"
+| two() |
+| one() |
+| GEC   |
+```
+
+After `two()` finishes:
+
+```text id="qv3l8o"
+| one() |
+| GEC   |
+```
+
+Then:
+
+```text id="pq4x4n"
+| GEC |
+```
+
+Finally stack becomes empty.
+
+---
+
+# One-Line Revision
+
+```text id="1v6mkd"
+JavaScript first creates memory, then executes code.
+Functions create their own execution context.
+Call stack manages everything using LIFO.
+```

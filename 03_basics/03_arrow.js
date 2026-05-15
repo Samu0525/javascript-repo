@@ -30,3 +30,15 @@ const chaha=()=>{
     console.log(this.username)// this will also not work in arrow function
 }
 chaha()
+
+//Pure Arrow Functions
+const addTTrue=(num1,num2)=>{
+    return  num1+num2
+}
+console.log(addTTrue(2,3));
+//
+
+// Implicit return -> donot use{} and return 
+const addTrue=(num1,num2)=>(num1+num2)
+console.log(addTrue(2,9));
+
